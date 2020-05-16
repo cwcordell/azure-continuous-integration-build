@@ -1,11 +1,13 @@
 # Trigger Notes:
-# 1. the default for both branches and paths is to include all branches and paths thus include 
-# is implicit unless include and/or exclude is specified
-# 2. order of include and exclude and their list order is irrevelant
+# 1. The default for both branches and paths is to include all branches and paths, thus include.
+#     is Implicit unless include and/or exclude is specified.
+# 2. Order of include and exclude and their list order is irrevelant.
 
 # Path Notes:
-# 1. must have branches defined to use paths
-# 2. a path can not be excluded and then included unless going deeper into the structure
+# 1. Must have branches defined to use paths.
+# 2. A path can not be excluded and then included unless going deeper into the structure.
+# 3. Paths defined in the yaml is for Git repositories with the exception of Azure Git. 
+#     Azure Git paths are set in the Azure DevOps repository branch settings.
 
 trigger:
   branches:
