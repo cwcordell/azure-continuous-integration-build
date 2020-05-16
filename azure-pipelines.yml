@@ -1,10 +1,27 @@
+# Trigger Notes:
+# 1. the default for both branches and paths is to include all branches and paths thus include 
+# is implicit unless include and/or exclude is specified
+# 2. order of include and exclude and their list order is irrevelant
+
+# Path Notes:
+# 1. must have branches defined to use paths
+# 2. a path can not be excluded and then included unless going deeper into the structure
+
 trigger:
   branches:
     include:
     - master
     - feature/*
+    - refs/tags/mytag
     exclude:
     - test/*
+    - refs/tags/yourtag
+  paths:
+    include:
+    - development/main/*
+    exclude:
+    - README.md
+    - development/*
 
 pool:
   vmImage: 'ubuntu-latest'
