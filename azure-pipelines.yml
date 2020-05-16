@@ -30,6 +30,8 @@
 # 1. Triggers a pipeline upone opening a pull request if the target branch criteria is specified.
 # 2. Similar to the general trigger structure in regard to branches and paths with include and exclude.
 # 3. AutoCancel specifies whether updates to a pull request make it invalid. The default is true.
+# 4. Pull requests can be triggered by specifying them here but most Git hosts have alternate
+#      means of setting up pull request triggers. Either will work however.
 
 trigger:
   batch: true # will not start another build when one is already in progress
