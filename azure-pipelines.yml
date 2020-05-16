@@ -1,15 +1,6 @@
-# trigger:
-# - master
-
-trigger: master
-
-# trigger on a commit to any branch
-# same as not having a trigger defined at all (default is any branch)
-# trigger:
-#   - '*'
-
-# trigger:
-
+trigger:
+- master
+- feature/*
 
 pool:
   vmImage: 'ubuntu-latest'
