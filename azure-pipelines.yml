@@ -8,9 +8,16 @@
 #     and either a tag or path is included then the build is run.
 # 5. New branches pushed to the repository will trigger a run unless the path filter's criteria is not met. 
 # 6. The asterisk is a reserved character in YAML and therefor must be quoted if it is the first character in a string.
+# 7. Builds can be skipped by adding special text to the commit comment. 
+#     Variations include: [skip azurepipelines], [azurepipelines skip], [skip azpipelines], [azpipelines skip],
+#     [skip ci], [ci skip], skip-checks: true, skip-checks:true, [skip azp], [azp skip], ***NO_CI***
+#     i.e., git commit -m "[skip ci] skipping a build with a comment"
+# 8. The batch boolean can be added to triggers to optimize resources. 
+#     If enabled then pushes to the repository will not trigger another build right away. 
+#     All pushes to a branch will be ran together once the current build is done.
 
 # Path Notes:
-# 1. Must have branches defined to use paths.
+# 1. Branches must be defined to use paths.
 # 2. A path can not be excluded and then included unless going deeper into the structure.
 # 3. Paths defined in the yaml is for Git repositories with the exception of Azure Git. 
 #     Azure Git paths are set in the Azure DevOps repository branch settings.
@@ -52,7 +59,7 @@ trigger:
 # pr:
 #   branches:
 #     include:
-#       - '*' 
+#      - '*' 
 #     exclude:
 #     - feature/*
 #   paths:
