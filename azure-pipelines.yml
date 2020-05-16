@@ -8,6 +8,9 @@
 # 2. A path can not be excluded and then included unless going deeper into the structure.
 # 3. Paths defined in the yaml is for Git repositories with the exception of Azure Git. 
 #     Azure Git paths are set in the Azure DevOps repository branch settings.
+# 4. Paths are relative to the repository root directory.
+# 5. The asterisk is optional because children of a directory are implied.
+# 6. Paths are case sensative.
 
 trigger:
   branches:
