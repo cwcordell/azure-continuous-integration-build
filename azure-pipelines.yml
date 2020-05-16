@@ -1,7 +1,9 @@
 # Trigger Notes:
-# 1. The default for both branches and paths is to include all branches and paths, thus include.
-#     is Implicit unless include and/or exclude is specified.
+# 1. The default for both branches and paths is to include all branches and paths,
+#     thus include is Implicit unless include and/or exclude is specified.
 # 2. Order of include and exclude and their list order is irrevelant.
+# 3. Triggers are evaluated before the runtime of the build, thus variables
+#     and other event data are not available when the build is triggered.
 
 # Path Notes:
 # 1. Must have branches defined to use paths.
