@@ -6,6 +6,8 @@
 #     and other event data are not available when the build is triggered.
 # 4. Tags and paths are evaluated as an or when used with branch filters, thus if a branch is a trigger
 #     and either a tag or path is included then the build is run.
+# 5. New branches pushed to the repository will trigger a run unless the path filter's criteria is not met. 
+# 6. The asterisk is a reserved character in YAML and therefor must be quoted if it is the first character in a string.
 
 # Path Notes:
 # 1. Must have branches defined to use paths.
@@ -13,32 +15,54 @@
 # 3. Paths defined in the yaml is for Git repositories with the exception of Azure Git. 
 #     Azure Git paths are set in the Azure DevOps repository branch settings.
 # 4. Paths are relative to the repository root directory.
-# 5. The asterisk is optional because children of a directory are implied.
-# 6. Paths are case sensative.
+# 5. The asterisk (*) is optional at the end of a path. Children of a directory are implied.
+#     The asterisk is not allowed anywhere but the end of the path.
+# 6. Paths are case sensitive.
 
-trigger:
+# PR Notes:
+# 1. Triggers a pipeline upone opening a pull request if the target branch criteria is specified.
+# 2. Similar to the general trigger structure in regard to branches and paths with include and exclude.
+# 3. AutoCancel specifies whether updates to a pull request make it invalid. The default is true.
+
+# trigger:
+#   branches:
+#     include:
+#     - master
+#     - feature/*
+#     - refs/tags/mytag
+#     exclude:
+#     - test/*
+#     - refs/tags/yourtag
+#   paths:
+#     include:
+#     - development/main/*
+#     exclude:
+#     - README.md
+#     - development/*
+#   tags:
+#     include:
+#     - v3.1
+#     exclude:
+#     - v4.*
+
+# trigger: none will not automatically start a CI build, this build must be ran manually.
+# trigger: none
+
+pr:
   branches:
     include:
-    - master
-    - feature/*
-    - refs/tags/mytag
+      - '*' 
     exclude:
-    - test/*
-    - refs/tags/yourtag
+    - feature/*
   paths:
     include:
     - development/main/*
     exclude:
-    - README.md
     - development/*
-  tags:
-    include:
-    - v3.1
-    exclude:
-    - v4.*
+  autoCancel: false
 
-# trigger: none will not automatically start a CI build, this build must be ran manually.
-# trigger: none
+# None can be specified so that no pull requests are ran automatically.
+# pr: none
 
 pool:
   vmImage: 'ubuntu-latest'
