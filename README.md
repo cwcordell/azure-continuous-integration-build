@@ -1,6 +1,24 @@
 # Azure Continuous Integration Build
 
-## Introduction
+## Setup
+
+### Prerequisites
+
+- Azure DevOps (ADO) account
+- GitHub or othe hosted Git account (i.e., Bitbucket, Azure Git, etc.)
+- Sufficient permissions on the Git repository and ADO to create the hooks needed
+- Fork the "azure-continuous-integration-build" repository or create your own
+
+### Create Your First Pipeline
+
+Within the Azure DevOps Web Portal
+
+- Go to your ADO account and choose pipelines > pipelines from the side menu
+- Click the "Create Pipeline" button
+- From the "Connect" tab, select the Git host you are using
+- From the "Select" tab, choose the repository of interest
+- From the "Configure tab, click the "Run" button
+- A build will be started with the placeholder tasks
 
 ### Jenkins Setup
 
