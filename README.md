@@ -1,10 +1,10 @@
-# azure-continuous-integration-build
+# Azure Continuous Integration Build
 
 ## Introduction
 
 ### Jenkins Setup
 
-To start a Jenkins container for the first time use the command below. Feel free to change the directory location to suite your needs.
+To start a Jenkins container for the first time use the command below. Feel free to change the directory location to suit your needs.
 
 ```bash
 JENKINS_DIRECTORY=$HOME/jenkins
@@ -18,4 +18,3 @@ JENKINS_PASSWORD_FILE=$JENKINS_DIRECTORY/secrets/initialAdminPassword
 JENKINS_PASSWORD=$(cat $JENKINS_PASSWORD_FILE)
 echo $JENKINS_PASSWORD_FILE
 ```
-
