@@ -24,42 +24,43 @@
 # 2. Similar to the general trigger structure in regard to branches and paths with include and exclude.
 # 3. AutoCancel specifies whether updates to a pull request make it invalid. The default is true.
 
-# trigger:
-#   branches:
-#     include:
-#     - master
-#     - feature/*
-#     - refs/tags/mytag
-#     exclude:
-#     - test/*
-#     - refs/tags/yourtag
-#   paths:
-#     include:
-#     - development/main/*
-#     exclude:
-#     - README.md
-#     - development/*
-#   tags:
-#     include:
-#     - v3.1
-#     exclude:
-#     - v4.*
-
-# trigger: none will not automatically start a CI build, this build must be ran manually.
-# trigger: none
-
-pr:
+trigger:
+  batch: true # will not start another build when one is already in progress
   branches:
     include:
-      - '*' 
-    exclude:
+    - master
     - feature/*
+    - refs/tags/mytag
+    exclude:
+    - test/*
+    - refs/tags/yourtag
   paths:
     include:
     - development/main/*
     exclude:
+    - README.md
     - development/*
-  autoCancel: false
+  tags:
+    include:
+    - v3.1
+    exclude:
+    - v4.*
+
+# trigger: none will not automatically start a CI build, this build must be ran manually.
+# trigger: none
+
+# pr:
+#   branches:
+#     include:
+#       - '*' 
+#     exclude:
+#     - feature/*
+#   paths:
+#     include:
+#     - development/main/*
+#     exclude:
+#     - development/*
+#   autoCancel: false
 
 # None can be specified so that no pull requests are ran automatically.
 # pr: none
