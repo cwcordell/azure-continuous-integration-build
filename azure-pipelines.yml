@@ -16,26 +16,29 @@
 # 5. The asterisk is optional because children of a directory are implied.
 # 6. Paths are case sensative.
 
-trigger:
-  branches:
-    include:
-    - master
-    - feature/*
-    - refs/tags/mytag
-    exclude:
-    - test/*
-    - refs/tags/yourtag
-  paths:
-    include:
-    - development/main/*
-    exclude:
-    - README.md
-    - development/*
-  tags:
-    include:
-    - v3.1
-    exclude:
-    - v4.*
+# trigger:
+#   branches:
+#     include:
+#     - master
+#     - feature/*
+#     - refs/tags/mytag
+#     exclude:
+#     - test/*
+#     - refs/tags/yourtag
+#   paths:
+#     include:
+#     - development/main/*
+#     exclude:
+#     - README.md
+#     - development/*
+#   tags:
+#     include:
+#     - v3.1
+#     exclude:
+#     - v4.*
+
+# trigger: none will not automatically start a CI build, this build must be ran manually.
+trigger: none
 
 pool:
   vmImage: 'ubuntu-latest'
