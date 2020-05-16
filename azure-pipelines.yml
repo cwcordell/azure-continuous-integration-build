@@ -4,6 +4,8 @@
 # 2. Order of include and exclude and their list order is irrevelant.
 # 3. Triggers are evaluated before the runtime of the build, thus variables
 #     and other event data are not available when the build is triggered.
+# 4. Tags and paths are evaluated as an or when used with branch filters, thus if a branch is a trigger
+#     and either a tag or path is included then the build is run.
 
 # Path Notes:
 # 1. Must have branches defined to use paths.
@@ -29,6 +31,11 @@ trigger:
     exclude:
     - README.md
     - development/*
+  tags:
+    include:
+    - v3.1
+    exclude:
+    - v4.*
 
 pool:
   vmImage: 'ubuntu-latest'
