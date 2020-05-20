@@ -9,6 +9,11 @@ pr:
       - release-*
     exclude:
       - 'release-1'
+  paths:
+    include:
+      - development/main/*
+    exclude:
+      - development
 
 pool:
   vmImage: 'ubuntu-latest'
