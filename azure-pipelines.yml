@@ -1,9 +1,9 @@
 trigger:
   tags:
     include:
-      - mytag
+      - v3.?
     exclude:
-      - othertag
+      - 4.*
 
 pool:
   vmImage: 'ubuntu-latest'
