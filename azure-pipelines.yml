@@ -1,10 +1,14 @@
 trigger:
-  tags:
+  branches:
     include:
-      - v3.?
+      - master
     exclude:
-      - 4.*
-
+      - feature/*
+  paths:
+    exclude:
+      - development/*
+    include:
+      - development/main/*
 pool:
   vmImage: 'ubuntu-latest'
 
