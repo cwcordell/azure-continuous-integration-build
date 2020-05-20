@@ -1,10 +1,9 @@
 trigger:
- branches:
-  include:
-    - master
-    - feature/*
-  exclude:
-    - features/wip-?-signin-form-*
+  tags:
+    include:
+      - mytag
+    exclude:
+      - othertag
 
 pool:
   vmImage: 'ubuntu-latest'
