@@ -3,12 +3,8 @@ trigger:
   - feature/*
 
 pr:
-  branches:
-    include:
-      - master
-      - release-*
-    exclude:
-      - 'release-1'
+  - master
+  - '?-release'
 
 pool:
   vmImage: 'ubuntu-latest'
