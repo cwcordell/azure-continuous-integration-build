@@ -1,19 +1,6 @@
-trigger:
-  - master
-  - feature/*
+trigger: none
 
-pr:
-  branches:
-    include:
-      - master
-      - release-*
-    exclude:
-      - 'release-1'
-  paths:
-    include:
-      - development/main/*
-    exclude:
-      - development
+pr: none
 
 pool:
   vmImage: 'ubuntu-latest'
