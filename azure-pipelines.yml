@@ -1,19 +1,9 @@
 trigger:
-  branches:
-    include:
-      - master
-    exclude:
-      - feature/*
-  tags:
-    include:
-      - v3.?
-    exclude:
-      - v3.0
-  paths:
-    exclude:
-      - development/*
-    include:
-      - development/main/*
+  - master
+  - feature/*
+
+pr:
+  - '*'
 
 pool:
   vmImage: 'ubuntu-latest'
