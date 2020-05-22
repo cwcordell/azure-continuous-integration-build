@@ -1,6 +1,9 @@
 trigger:
   - master
 
+pr:
+  autoCancel: true
+
 pool:
   vmImage: 'ubuntu-latest'
 
