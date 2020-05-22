@@ -3,14 +3,12 @@ trigger:
     include:
       - master
       - build-*-triggers-?
-  tags:
+      - '*-release'
+      - 'wip-?'
     exclude:
-      - v4.*
-  paths:
-    exclude:
-      - development/*
-    include:
-      - development/main/*
+      - build-branch-triggers-?
+      - canary-3*-release
+
 pr:
   branches:
     include:
