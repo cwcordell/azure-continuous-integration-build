@@ -1,9 +1,10 @@
 trigger:
   branches:
     include:
-      - refs/tags/v3.*
+      - master
+  paths:
     exclude:
-      - refs/tags/v3.0
+      - README.md
 
 pool:
   vmImage: 'ubuntu-latest'
