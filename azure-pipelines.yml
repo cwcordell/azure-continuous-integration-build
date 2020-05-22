@@ -3,8 +3,8 @@ trigger:
     include:
       - master
   paths:
-    exclude:
-      - README.md
+    include:
+      - development/*
 
 pool:
   vmImage: 'ubuntu-latest'
