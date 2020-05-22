@@ -1,13 +1,9 @@
 trigger:
   branches:
     include:
-      - master
-      - build-*-triggers-?
-      - '*-release'
-      - 'wip-?'
+      - feature/*
     exclude:
-      - build-branch-triggers-?
-      - canary-3*-release
+      - feature/wip-?-signin-form-*
 
 pr:
   branches:
@@ -25,3 +21,4 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+›
