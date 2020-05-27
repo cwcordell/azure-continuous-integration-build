@@ -12,10 +12,12 @@ stages:
         - script: echo checking code quality
           displayName: 'validate code'
       - job: test
+        dependsOn: validate
         steps:
         - script: echo running unit tests
           displayName: 'unit testing'
   - stage: build_and_archive
+    dependsOn: validate_and_test
     jobs:
       - job: build
         steps:
