@@ -5,14 +5,14 @@ pool:
   vmImage: 'ubuntu-latest'
 
 jobs:
-  - job: build
+  - job: validate_build_and_test
     steps:
-    - script: echo Step 1
-      displayName: 'Step 1'
-    - script: echo Step 2
-      displayName: 'Step 2'
-    - script: echo Step 3
-      displayName: 'Step 3'
-    - script: echo Step 4
-      displayName: 'Step 4'
+    - script: echo checking code quality
+      displayName: 'validate code'
+    - script: echo running unit tests
+      displayName: 'unit testing'
+    - script: echo compiling code
+      displayName: 'build code'
+    - script: echo archiving
+      displayName: 'archiving artifact'
 
