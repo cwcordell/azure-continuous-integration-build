@@ -4,19 +4,23 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-jobs:
-  - job: validate
-    steps:
-    - script: echo checking code quality
-      displayName: 'validate code'
-  - job: test
-    steps:
-    - script: echo running unit tests
-      displayName: 'unit testing'
-  - job: build
-    steps:
-    - script: echo compiling code
-      displayName: 'build code'
-    - script: echo archiving
-      displayName: 'archiving artifact'
+stages:
+  - stage: validate_and_test
+    jobs:
+      - job: validate
+        steps:
+        - script: echo checking code quality
+          displayName: 'validate code'
+      - job: test
+        steps:
+        - script: echo running unit tests
+          displayName: 'unit testing'
+  - stage: build_and_archive
+    jobs:
+      - job: build
+        steps:
+        - script: echo compiling code
+          displayName: 'build code'
+        - script: echo archiving
+          displayName: 'archiving artifact'
 
