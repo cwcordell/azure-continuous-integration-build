@@ -2,12 +2,13 @@ trigger:
 - master
 - release-*
 
+pool:
+  vmImage: 'ubuntu-latest'
+
 stages:
   - stage: testing
     jobs:
-      - job: testing
-        pool:
-          vmImage: 'ubuntu-latest'
+      - job: integration_testing
 
         steps:
           - script: echo run integration tests
