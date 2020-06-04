@@ -1,18 +1,19 @@
 trigger:
-  - master
-  - prtest
+- master
+- release-*
 
-pr:
-  autoCancel: false
+stages:
+  - stage: testing
+    jobs:
+      - job: testing
+        pool:
+          vmImage: 'ubuntu-latest'
 
-pool:
-  vmImage: 'ubuntu-latest'
+        steps:
+          - script: echo run integration tests
+            displayName: 'Run integration tests'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+      - job: stress_testing
+        steps:
+          - script: echo run stress tests
+            displayName: 'Run stress tests'
